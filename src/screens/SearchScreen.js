@@ -19,15 +19,15 @@ const SearchScreen = () => {
       <SearchBar
         term={term}
         onTermChange={setTerm}
-        onTermSubmit={(searchTerm) => {
-          searchApi(searchTerm);
+        onTermSubmit={(searchEvent) => {
+          searchApi(searchEvent.nativeEvent.text);
         }}
       />
       {errorMessage ? <Text>{errorMessage}</Text> : null}
       <ScrollView>
-        <ResultsList results={filterResultsByPrice('$')} title='Cost Effective' />
-        <ResultsList results={filterResultsByPrice('$$')} title='Bit Pricier' />
-        <ResultsList results={filterResultsByPrice('$$$')} title='Big Spender' />
+        <ResultsList results={filterResultsByPrice('$')} title='Cost Effective'/>
+        <ResultsList results={filterResultsByPrice('$$')} title='Bit Pricier'/>
+        <ResultsList results={filterResultsByPrice('$$$')} title='Big Spender'/>
       </ScrollView>
     </>
   );
